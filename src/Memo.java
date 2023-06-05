@@ -9,7 +9,7 @@ public class Memo {
 
     }
 
-    //메모 입력을 위한 생성자
+    //메모 입력을 위한 생성자입니다.
     public Memo(String name, String password, String memo) {
         this.name = name;
         this.password = password;
