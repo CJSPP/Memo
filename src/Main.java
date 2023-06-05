@@ -54,7 +54,7 @@ public class Main {
         System.out.println("[\u001B[34m MemoList \u001B[0m]");
         List<Memo> list = memolist.getMemolist();
         list.forEach((Memo m) -> {
-            System.out.println(m.getNumber() + m.getName() + m.getDate());
+            System.out.println(m.getNumber() + ". " + m.getName() + "\t" + m.getDate());
         });
         System.out.println("\n");
     }
