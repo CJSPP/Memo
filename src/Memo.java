@@ -5,6 +5,16 @@ public class Memo {
     private String memo;
     private String date;
 
+    Memo() {}
+
+    Memo(int number, String name, String pwd, String memo, String date) {
+        this.number = number;
+        this.name = name;
+        this.password = pwd;
+        this.memo = memo;
+        this.date = date;
+    }
+    
     public int getNumber() {
         return number;
     }
