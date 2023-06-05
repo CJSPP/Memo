@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        memolist = new MemoList();
+        
         while (true) {
             System.out.println("1. 입력");
             System.out.println("2. 목록 보기");
@@ -21,7 +23,7 @@ public class Main {
                     //입력 메서드를 만들어서 호출하면 될거 같습니다.
                     break;
                 case 2 :
-                    //목록보기 메서드를 만들어서 호출하면 될거 같습니다.
+                    printMemolist();
                     break;
                 case 3 :
                     //수정 메서드를 만들어서 호출하면 될거 같습니다.
@@ -31,5 +33,14 @@ public class Main {
                     break;
             }
         }
+    }
+    
+    private static void printMemolist() {
+        System.out.println("[\u001B[34m MemoList \u001B[0m]");
+        List<Memo> list = memolist.getMemolist();
+        list.forEach((Memo m) -> {
+            System.out.println(m.getNumber + m.getName + m.getDate); 
+        })
+        System.out.println("\n");
     }
 }
