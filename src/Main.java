@@ -4,6 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        memolist = new MemoList();
+        
         while (true) {
             System.out.println("1. 입력");
             System.out.println("2. 목록 보기");
