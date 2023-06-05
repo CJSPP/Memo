@@ -2,14 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemoList {
-    List<Memo> memolist;
-
-    MemoList() {
-        this.memolist = new ArrayList<Memo>();
-    }
+    static List<Memo> memolist = new ArrayList<Memo>();
 
     public List<Memo> getMemolist() {
-        return this.memolist;
+        return memolist;
     }
 }
 // comment for commit

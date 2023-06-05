@@ -1,11 +1,20 @@
 public class Memo {
     private int number;
-    private String name;
+    private static String name;
     private String password;
     private String memo;
     private String date;
 
-    Memo() {}
+    Memo() {
+
+    }
+
+    //메모 입력에 필요한 생성자입니다.
+    public Memo(String name, String password, String memo) {
+        this.name = name;
+        this.password = password;
+        this.memo = memo;
+    }
 
     Memo(int number, String name, String pwd, String memo, String date) {
         this.number = number;
@@ -14,12 +23,12 @@ public class Memo {
         this.memo = memo;
         this.date = date;
     }
-    
+
     public int getNumber() {
         return number;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
