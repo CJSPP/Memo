@@ -1,10 +1,12 @@
 import java.util.Scanner;
+import java.util.List;
 
 public class Main {
+
+    static MemoList memolist = new MemoList();
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        memolist = new MemoList();
         
         while (true) {
             System.out.println("1. 입력");
@@ -37,8 +39,8 @@ public class Main {
         System.out.println("[\u001B[34m MemoList \u001B[0m]");
         List<Memo> list = memolist.getMemolist();
         list.forEach((Memo m) -> {
-            System.out.println(m.getNumber + m.getName + m.getDate); 
-        })
+            System.out.println(m.getNumber() + m.getName() + m.getDate());
+        });
         System.out.println("\n");
     }
 
@@ -49,7 +51,7 @@ public class Main {
         System.out.print("\n여기에 글 번호를 입력해주세요 => ");
         int deleteNumber = sc.nextInt();
         boolean exist = false;
-        for (int i = 0; i < MemoList.memolist.size(); i++) {
+        for (int i = 0; i < memolist.memolist.size(); i++) {
             if (memolist.getMemolist().get(i).getNumber() == deleteNumber) { //삭제할 글이 존재하는 경우
                 exist = true;
                 System.out.println("해당 글의 비밀번호를 입력하시면 바로 메모가 삭제됩니다.");
@@ -67,3 +69,4 @@ public class Main {
     }
 
 }
+//              comment for commit
