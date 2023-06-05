@@ -34,7 +34,7 @@ public class Main {
         }
     }
 
-    //입력 메서드
+    //입력 메서드입니다.
     private static void memo_input() {
         Scanner sc = new Scanner(System.in);
         System.out.println("이름을 입력해주세요.");
