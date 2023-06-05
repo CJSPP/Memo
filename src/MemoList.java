@@ -7,4 +7,6 @@ public class MemoList {
     public List<Memo> getMemolist() {
         return memolist;
     }
+
 }
+// comment for commit
