@@ -8,4 +8,3 @@ public class MemoList {
         return memolist;
     }
 }
-// comment for commit

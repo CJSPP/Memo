@@ -22,6 +22,10 @@ public class Memo {
         this.date = date;
     }
 
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
     public String getName() {
         return name;
     }

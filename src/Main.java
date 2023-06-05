@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.List;
 
@@ -27,9 +29,10 @@ public class Main {
                     printMemolist();
                     break;
                 case 3:
-                    //수정 메서드를 만들어서 호출하면 될거 같습니다.
+                    modifyMemo();
                     break;
                 case 4:
+                    printMemolist();
                     deleteMemo();
                     break;
             }
@@ -37,6 +40,9 @@ public class Main {
     }
 
     private static void memo_input() {
+        Date today = new Date();
+        SimpleDateFormat time = new SimpleDateFormat("MM월 dd일 HH시 mm분");
+        String date = time.format(today);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("이름을 입력해주세요.");
@@ -46,7 +52,7 @@ public class Main {
         System.out.println("메모를 입력해주세요.");
         String memo = sc.nextLine();
 
-        Memo memoclass = new Memo(name, password, memo);
+        Memo memoclass = new Memo(name, password, memo, date);
         MemoList.memolist.add(memoclass);
     }
 
@@ -54,7 +60,7 @@ public class Main {
         System.out.println("[\u001B[34m MemoList \u001B[0m]");
         List<Memo> list = memolist.getMemolist();
         list.forEach((Memo m) -> {
-            System.out.println((memolist.getMemolist().indexOf(m)+1) + ". " + m.getName() + "\t" + m.getDate());
+            System.out.println((memolist.getMemolist().indexOf(m)+1) + ". " + m.getName() +"\t" + m.getDate() + "\t" + m.getMemo());
         });
         System.out.println("\n");
     }
@@ -84,4 +90,28 @@ public class Main {
         }
     }
 
+    private static void modifyMemo(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("수정할 글의 번호를 입력해주세요.");
+        String input = sc.nextLine();
+        int menuNum = Integer.parseInt(input);
+        boolean exist = false;
+        for (int i = 0; i < memolist.memolist.size(); i++) {
+            if ( i+1 == menuNum ) {
+                exist = true;
+                System.out.println("해당 글의 비밀번호를 입력하시면 바로 메모가 수정됩니다.");
+                System.out.print("해당 글의 비밀번호를 입력해주세요. => ");
+                String pwd = sc.nextLine();
+                if (pwd.equals(memolist.getMemolist().get(i).getPassword())) {
+                    String afterMemo = sc.nextLine();
+                    memolist.getMemolist().get(i).setMemo(afterMemo);
+                    System.out.println("해당 메모를 수정했습니다.");
+                    break;
+                }
+            }
+        }
+        if (!exist) {
+            System.out.println("수정할 글이 존재하지 않습니다.");
+        }
+    }
 }
