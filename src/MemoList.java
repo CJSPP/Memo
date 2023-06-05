@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MemoList {
-    List<Memo> memolist;
+    static List<Memo> memolist = new ArrayList<>();
 }
