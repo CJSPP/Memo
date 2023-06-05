@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class Main {
                     //수정 메서드를 만들어서 호출하면 될거 같습니다.
                     break;
                 case 4:
+                    printMemolist();
                     deleteMemo();
                     break;
             }
@@ -37,6 +40,9 @@ public class Main {
     }
 
     private static void memo_input() {
+        Date today = new Date();
+        SimpleDateFormat time = new SimpleDateFormat("MM월 dd일 HH시 mm분");
+        String date = time.format(today);
         Scanner sc = new Scanner(System.in);
 
         System.out.println("이름을 입력해주세요.");
@@ -46,7 +52,7 @@ public class Main {
         System.out.println("메모를 입력해주세요.");
         String memo = sc.nextLine();
 
-        Memo memoclass = new Memo(name, password, memo);
+        Memo memoclass = new Memo(name, password, memo, date);
         MemoList.memolist.add(memoclass);
     }
 
