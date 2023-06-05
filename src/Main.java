@@ -13,7 +13,7 @@ public class Main {
         int num = sc.nextInt();
         switch (num) {
             case 1 : {
-                System.out.println("");
+                System.out.println("수정");
             }
             case 2 : {
                 System.out.println("");
