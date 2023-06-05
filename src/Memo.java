@@ -1,6 +1,5 @@
 public class Memo {
-    private int number;
-    private static String name;
+    private String name;
     private String password;
     private String memo;
     private String date;
@@ -16,19 +15,14 @@ public class Memo {
         this.memo = memo;
     }
 
-    Memo(int number, String name, String pwd, String memo, String date) {
-        this.number = number;
+    Memo(String name, String pwd, String memo, String date) {
         this.name = name;
         this.password = pwd;
         this.memo = memo;
         this.date = date;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
-    public static String getName() {
+    public String getName() {
         return name;
     }
 

@@ -54,7 +54,7 @@ public class Main {
         System.out.println("[\u001B[34m MemoList \u001B[0m]");
         List<Memo> list = memolist.getMemolist();
         list.forEach((Memo m) -> {
-            System.out.println(m.getNumber() + m.getName() + m.getDate());
+            System.out.println((memolist.getMemolist().indexOf(m)+1) + ". " + m.getName() + "\t" + m.getDate());
         });
         System.out.println("\n");
     }
@@ -67,13 +67,14 @@ public class Main {
         int deleteNumber = sc.nextInt();
         boolean exist = false;
         for (int i = 0; i < memolist.memolist.size(); i++) {
-            if (memolist.getMemolist().get(i).getNumber() == deleteNumber) { //삭제할 글이 존재하는 경우
+            if ( i+1 == deleteNumber ) { //삭제할 글의 번호와 deleteNumber이 일치하는 글
                 exist = true;
                 System.out.println("해당 글의 비밀번호를 입력하시면 바로 메모가 삭제됩니다.");
-                System.out.print("해당 글의 비밀번호를 입력해주세요. =>");
-                String pwd = sc.nextLine();
+                System.out.print("해당 글의 비밀번호를 입력해주세요. => ");
+                String pwd = sc.next();
                 if (pwd.equals(memolist.getMemolist().get(i).getPassword())) {
                     memolist.getMemolist().remove(i);
+                    System.out.println("해당 메모를 삭제했습니다.");
                     break;
                 }
             }
